@@ -4,175 +4,395 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ecoleaf Bio-Composite Pilot Project</title>
+    <style>
+        /* CSS Reset & Base Styles */
+        :root {
+            --primary-green: #2e7d32;
+            --dark-bg: #1a1e21;
+            --light-bg: #f8f9fa;
+            --text-main: #2d3436;
+            --text-muted: #636e72;
+            --white: #ffffff;
+            --border-color: #dfe6e9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        body {
+            background-color: var(--light-bg);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-bg);
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            border-bottom: 3px solid var(--primary-green);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+
+        ul, ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--dark-bg);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-green);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-green);
+        }
+
+        /* Main Content Layout */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        section {
+            background: var(--white);
+            padding: 40px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Hero Section Styling */
+        #home {
+            background: linear-gradient(rgba(26, 30, 33, 0.8), rgba(26, 30, 33, 0.9)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000') center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        #home h2, #home h3, #home h4 {
+            color: var(--white);
+            border-color: var(--primary-green);
+        }
+
+        /* Cards for Lists */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature-card {
+            background: var(--light-bg);
+            padding: 20px;
+            border-left: 4px solid var(--primary-green);
+            border-radius: 4px;
+        }
+
+        /* Table Styling */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--dark-bg);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: var(--light-bg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            nav a {
+                padding: 5px 10px;
+                background: rgba(255,255,255,0.1);
+                border-radius: 4px;
+            }
+
+            section {
+                padding: 25px 15px;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <h1>Ecoleaf Bio-Composite</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#innovation">The Innovation</a></li>
-                <li><a href="#challenge">The Sarawak Challenge</a></li>
-                <li><a href="#market">Market & Viability</a></li>
-                <li><a href="#roadmap">Project Roadmap</a></li>
-                <li><a href="#partnerships">Partnerships</a></li>
-                <li><a href="#about">About the Inventor</a></li>
-            </ul>
-        </nav>
+        <div class="nav-container">
+            <a href="#home" class="logo"><span>Eco</span>leaf</a>
+            <nav>
+                <ul>
+                    <li><a href="#innovation">Innovation</a></li>
+                    <li><a href="#challenge">The Challenge</a></li>
+                    <li><a href="#market">Market</a></li>
+                    <li><a href="#roadmap">Roadmap</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
         <section id="home">
             <h2>The Vision</h2>
             <h3>Transforming Agricultural Waste into Sarawak's Green Gold</h3>
-            <p>A Strategic Initiative to Transform Agricultural Biomass into High-Value Assets, Supporting Sarawak's PCDS 2030 Goals for a Green Economy[cite: 2].</p>
+            <p>A Strategic Initiative to Transform Agricultural Biomass into High-Value Assets, Supporting Sarawak's PCDS 2030 Goals for a Green Economy.</p>
             
-            <h4>Our Mission</h4>
-            <p>We aim to transform a massive agricultural liability, oil palm frond waste, into a high-value, globally competitive material for the furniture and construction industries[cite: 11].</p>
-
-            <h4>PCDS 2030 Alignment</h4>
-            <ul>
-                <li><strong>Environmental Sustainability:</strong> Implements a Circular Economy model by capturing oil palm fronds and transitioning away from the "linear" waste model[cite: 36, 37, 38].</li>
-                <li><strong>Economic Prosperity:</strong> Shifts the economic value from raw materials to proprietary, IP-protected innovation (UI2025006487)[cite: 46, 47].</li>
-                <li><strong>Social Inclusivity:</strong> Creates high-value jobs for TVET and university graduates (e.g., machine operators, R&D staff)[cite: 58, 59, 60].</li>
-            </ul>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4 style="color: var(--dark-bg);">Environmental Sustainability</h4>
+                    <p style="color: var(--text-main);">Implements a Circular Economy model by capturing oil palm fronds and transitioning away from the "linear" waste model.</p>
+                </div>
+                <div class="feature-card">
+                    <h4 style="color: var(--dark-bg);">Economic Prosperity</h4>
+                    <p style="color: var(--text-main);">Shifts the economic value from raw materials to proprietary, IP-protected innovation (UI2025006487).</p>
+                </div>
+                <div class="feature-card">
+                    <h4 style="color: var(--dark-bg);">Social Inclusivity</h4>
+                    <p style="color: var(--text-main);">Creates high-value jobs for TVET and university graduates, retaining local talent in high-tech manufacturing.</p>
+                </div>
+            </div>
         </section>
-
-        <hr>
 
         <section id="innovation">
             <h2>The Innovation</h2>
             <h3>Beyond Plywood: The Ecoleaf Advantage</h3>
-            <p>Ecoleaf is a proprietary, patent-pending (UI2025006487) composite panel engineered from oil palm fronds and a high-performance epoxy resin system[cite: 13].</p>
+            <p>Ecoleaf is a proprietary, patent-pending (UI2025006487) composite panel engineered from oil palm fronds and a high-performance epoxy resin system.</p>
 
-            <h4>Key Features</h4>
-            <ul>
-                <li><strong>Waterproof & Durable:</strong> Solves the swelling and delamination issues of standard plywood[cite: 15]. Ecoleaf's epoxy encapsulation creates a hydrophobic barrier around every fiber chip[cite: 132].</li>
-                <li><strong>Zero-VOC:</strong> Eliminates toxic formaldehyde emissions found in standard furniture boards[cite: 16].</li>
-                <li><strong>Sustainable:</strong> Upcycles 100% agricultural waste and reduces open burning[cite: 17].</li>
-            </ul>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Waterproof & Durable</h4>
+                    <p>Solves the swelling and delamination issues of standard plywood. Ecoleaf's epoxy encapsulation creates a hydrophobic barrier around every fiber chip.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Zero-VOC Safety</h4>
+                    <p>Eliminates toxic formaldehyde emissions found in standard furniture boards, ensuring healthier indoor environments.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>100% Sustainable</h4>
+                    <p>Upcycles pure agricultural waste, permanently sequestering carbon and directly reducing open burning practices.</p>
+                </div>
+            </div>
 
+            <br>
             <h4>The Manufacturing Process</h4>
             <ol>
-                <li><strong>Precision Preparation:</strong> Raw fronds are shredded and industrially dried to a moisture content of <10%[cite: 119, 120].</li>
-                <li><strong>Homogenous Amalgamation:</strong> Dried fibers are mixed with the epoxy system using high-torque industrial mixers[cite: 122].</li>
-                <li><strong>High-Pressure Densification:</strong> The mixture is subjected to high-pressure hydraulic pressing to eliminate voids and cure the material[cite: 126, 128, 129].</li>
+                <li><strong>Precision Preparation:</strong> Raw fronds are shredded and industrially dried to a moisture content of &lt;10%.</li>
+                <li><strong>Homogenous Amalgamation:</strong> Dried fibers are mixed with the epoxy system using high-torque industrial mixers.</li>
+                <li><strong>High-Pressure Densification:</strong> The mixture is subjected to high-pressure hydraulic pressing to eliminate voids and cure the material.</li>
             </ol>
         </section>
-
-        <hr>
 
         <section id="challenge">
             <h2>The Sarawak Challenge</h2>
             <h3>Solving the RM 800 Million Disconnect</h3>
             
-            <h4>The Disconnect</h4>
-            <p>While Crude Palm Oil contributed RM 801 million to state coffers in 2025, Timber Products contributed only RM 21 million[cite: 70, 71]. We export finite resources and import finished goods[cite: 67]. Ecoleaf bridges this gap[cite: 73].</p>
+            <p><strong>The Disconnect:</strong> While Crude Palm Oil contributed RM 801 million to state coffers in 2025, Timber Products contributed only RM 21 million. We export finite resources and import finished goods. Ecoleaf bridges this gap.</p>
 
-            <h4>The Open Burning Crisis</h4>
-            <p>Millions of tonnes of old palm oil fronds are pruned annually[cite: 78]. Farmers frequently resort to open burning to clear this waste, exacerbating local and regional haze[cite: 81, 83].</p>
+            <p><strong>The Open Burning Crisis:</strong> Millions of tonnes of old palm oil fronds are pruned annually. Farmers frequently resort to open burning to clear this waste, exacerbating local and regional haze.</p>
 
-            <h4>The Quality Gap</h4>
-            <p>Standard engineered woods (plywood, MDF) are inherently hygroscopic[cite: 95]. In Borneo's hyper-humid climate, this leads to irreversible thickness swelling and rapid delamination[cite: 98].</p>
+            <p><strong>The Quality Gap:</strong> Standard engineered woods (plywood, MDF) are inherently hygroscopic. In Borneo's hyper-humid climate, this leads to irreversible thickness swelling and rapid delamination.</p>
         </section>
-
-        <hr>
 
         <section id="market">
             <h2>Market Analysis & Commercial Viability</h2>
             <h3>Bridging the Gap Between Wood and Tiles</h3>
 
-            <h4>Target Markets</h4>
             <ul>
-                <li><strong>Kitchen & Bath:</strong> A waterproof, non-toxic alternative to plywood[cite: 21].</li>
-                <li><strong>Healthy Homes:</strong> Positioned as a leader in "Super E0" compliant materials to meet strict EU and Japanese formaldehyde regulations[cite: 237, 241, 242].</li>
-                <li><strong>Export Markets:</strong> Capturing demand in resource-scarce nations (Korea, Japan, China, Australia)[cite: 23].</li>
+                <li><strong>Kitchen & Bath:</strong> A waterproof, non-toxic alternative to plywood for durable cabinetry.</li>
+                <li><strong>Healthy Homes:</strong> Positioned as a leader in "Super E0" compliant materials to meet strict EU and Japanese formaldehyde regulations.</li>
+                <li><strong>Export Markets:</strong> Capturing demand in resource-scarce nations (Korea, Japan, China, Australia).</li>
             </ul>
 
-            <h4>Comparative Material Cost Analysis (Per ft²)</h4>
-            <table border="1">
-                <tr>
-                    <th>Material Type</th>
-                    <th>Est. Material Cost (Per ft²)</th>
-                    <th>Performance Profile</th>
-                </tr>
-                <tr>
-                    <td>Standard MR Plywood</td>
-                    <td>RM 3.00 - RM 3.50</td>
-                    <td>Low Moisture Resistance, High VOC [cite: 268]</td>
-                </tr>
-                <tr>
-                    <td><strong>Ecoleaf Bio-Composite</strong></td>
-                    <td><strong>RM 4.20 - RM 5.60</strong></td>
-                    <td><strong>Fully Waterproof, Zero-VOC [cite: 268]</strong></td>
-                </tr>
-                <tr>
-                    <td>Marine Plywood</td>
-                    <td>RM 5.50 - RM 8.00</td>
-                    <td>Water Resistant, Variable VOC [cite: 270]</td>
-                </tr>
-                <tr>
-                    <td>Porcelain/Ceramic Tiles</td>
-                    <td>RM 10.00 - RM 15.00+</td>
-                    <td>Waterproof, Heavy, Brittle [cite: 270]</td>
-                </tr>
-            </table>
+            <h4>Comparative Material Cost Analysis</h4>
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Material Type</th>
+                        <th>Est. Material Cost (Per ft²)</th>
+                        <th>Performance Profile</th>
+                    </tr>
+                    <tr>
+                        <td>Standard MR Plywood</td>
+                        <td>RM 3.00 - RM 3.50</td>
+                        <td>Low Moisture Resistance, High VOC</td>
+                    </tr>
+                    <tr style="background-color: rgba(46, 125, 50, 0.1);">
+                        <td><strong>Ecoleaf Bio-Composite</strong></td>
+                        <td><strong>RM 4.20 - RM 5.60</strong></td>
+                        <td><strong>Fully Waterproof, Zero-VOC</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Marine Plywood</td>
+                        <td>RM 5.50 - RM 8.00</td>
+                        <td>Water Resistant, Variable VOC</td>
+                    </tr>
+                    <tr>
+                        <td>Porcelain/Ceramic Tiles</td>
+                        <td>RM 10.00 - RM 15.00+</td>
+                        <td>Waterproof, Heavy, Brittle</td>
+                    </tr>
+                </table>
+            </div>
         </section>
-
-        <hr>
 
         <section id="roadmap">
-            <h2>Project Roadmap & Partnership Strategy</h2>
+            <h2>Project Roadmap & Strategy</h2>
             
-            <h4>Phase 1: Foundation & Technical Validation (Months 1-6)</h4>
-            <ul>
-                <li>Secure Seed Funding and file Substantive Examination Request with MyIPO[cite: 303, 304].</li>
-                <li>Produce standardized test samples and submit to SIRIM / FRIM for official testing[cite: 308, 311].</li>
-            </ul>
-
-            <h4>Phase 2: Market Seeding & Operational Pilot (Months 7-12)</h4>
-            <ul>
-                <li>Supply free pilot batches of Ecoleaf panels to 3 selected Sarawakian furniture manufacturers[cite: 319, 320].</li>
-                <li>Secure Letters of Intent (LOI) from developers or furniture makers[cite: 326].</li>
-            </ul>
-
-            <h4>Phase 3: Commercial Scaling & Export (Year 2 Onwards)</h4>
-            <ul>
-                <li>Secure Series A Investment to build a dedicated factory facility[cite: 329].</li>
-                <li>Commence export operations to key markets like Korea and Japan[cite: 332].</li>
-            </ul>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Phase 1: Validation</h4>
+                    <p><strong>Months 1-6:</strong> Secure Seed Funding (RM 70,500), file Substantive Examination Request with MyIPO, and submit standardized samples to SIRIM / FRIM for official testing.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Phase 2: Market Seeding</h4>
+                    <p><strong>Months 7-12:</strong> Supply pilot batches to 3 Sarawakian furniture manufacturers and secure commercial Letters of Intent (LOI).</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Phase 3: Commercial Scaling</h4>
+                    <p><strong>Year 2 Onwards:</strong> Secure Series A Investment for a dedicated factory facility and commence high-value exports to Korea and Japan.</p>
+                </div>
+            </div>
         </section>
 
-        <hr>
-
         <section id="partnerships">
-            <h2>Phase 1 Resource Requirements</h2>
+            <h2>Resource Requirements</h2>
             <h3>De-Risking Innovation for Sarawak</h3>
 
-            <h4>Objective of Funding</h4>
-            <p>We request a Seed Grant of RM 70,500 to establish the Ecoleaf Pilot Production Line[cite: 350]. This will de-risk the innovation by securing certified data and IP[cite: 354].</p>
+            <p>We request a Seed Grant of <strong>RM 70,500</strong> to establish the Ecoleaf Pilot Production Line. This capital is dedicated entirely to asset acquisition (machinery), technology verification, and intellectual property protection.</p>
 
             <h4>The Strategic "Ask"</h4>
             <ul>
-                <li><strong>Regulatory Facilitation:</strong> Accelerated engagement with STIDC and NREB[cite: 364, 365, 366].</li>
-                <li><strong>Raw Material Access:</strong> Facilitating a formal "Waste Offtake Agreement" with state-linked plantation agencies like SALCRA[cite: 369, 370].</li>
-                <li><strong>Official Endorsement:</strong> Formal recognition as a "PCDS 2030 Priority Project"[cite: 375].</li>
+                <li><strong>Regulatory Facilitation:</strong> Accelerated engagement with STIDC and NREB to ensure compliance from Day 1.</li>
+                <li><strong>Raw Material Access:</strong> Facilitating a formal "Waste Offtake Agreement" with state-linked plantation agencies like SALCRA.</li>
+                <li><strong>Official Endorsement:</strong> Formal recognition as a "PCDS 2030 Priority Project" to unlock future commercial bank financing.</li>
             </ul>
         </section>
-
-        <hr>
 
         <section id="about">
             <h2>About The Inventor</h2>
             
-            <h3>Mohamad Nurhaniesufian Bin Handri</h3>
-            <p><strong>Role:</strong> Founder & Lead Innovator [cite: 380]</p>
-            <p><strong>Education:</strong> Bachelor of International Marketing (Semester 5), Universiti Malaysia Sabah [cite: 381]</p>
-            <p><strong>Origin:</strong> Lawas, Sarawak [cite: 382]</p>
+            <p><strong>Mohamad Nurhaniesufian Bin Handri</strong><br>
+            Founder & Lead Innovator<br>
+            Bachelor of International Marketing (Semester 5), UMS</p>
 
-            <h4>The Innovator's Journey</h4>
-            <p>Growing up in Lawas, I witnessed a persistent problem: mountains of oil palm fronds left to rot or burn after harvest[cite: 386, 387]. Refusing to wait for others to solve this, I took the initiative to turn the concept into reality by self-funding R&D and securing the initial IP[cite: 391, 393, 394]. I am now ready to transition from a student innovator to the founder of Sarawak's next primary green industry[cite: 397].</p>
+            <p>Growing up in Lawas, Sarawak, I witnessed a persistent problem: mountains of oil palm fronds left to rot or burn after harvest. Refusing to wait for others to solve this economic and environmental leak, I took the initiative to turn the concept into reality.</p>
+            
+            <p>Operating independently, I self-funded the initial R&D, successfully fabricated high-density prototypes, and navigated the legal landscape to file the IP (UI2025006487). I am now ready to transition from a student innovator to the founder of Sarawak's next primary green industry.</p>
         </section>
     </main>
 
