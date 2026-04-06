@@ -168,6 +168,30 @@
             border-radius: 4px;
         }
 
+        /* Image Styling */
+        .content-image {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .inventor-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .challenge-item {
+            margin-bottom: 40px;
+        }
+
         /* Table Styling */
         .table-container {
             overflow-x: auto;
@@ -240,7 +264,7 @@
         <div class="nav-container">
             <a href="#home" class="logo">
                 <img src="logo.png" alt="Ecoleaf Logo" class="logo-icon">
-                <span>Eco</span>-Leaf Palm Oil Board
+                <span>Eco</span>leaf
             </a>
             <nav>
                 <ul>
@@ -309,11 +333,23 @@
             <h2>The Malaysia Challenge</h2>
             <h3>Solving the RM 800 Million Disconnect</h3>
             
-            <p><strong>The Disconnect:</strong> While Crude Palm Oil contributed RM 801 million to state coffers in 2025, Timber Products contributed only RM 21 million. We export finite resources and import finished goods. Ecoleaf bridges this gap.</p>
+            <div class="challenge-item">
+                <h4>1. The Economic Disconnect</h4>
+                <img src="disconnect.jpg" alt="The Economic Disconnect" class="content-image">
+                <p>While Crude Palm Oil contributed RM 801 million to state coffers in 2025, Timber Products contributed only RM 21 million. We export finite resources and import finished goods. Ecoleaf bridges this gap.</p>
+            </div>
 
-            <p><strong>The Open Burning Crisis:</strong> Millions of tonnes of old palm oil fronds are pruned annually. Farmers frequently resort to open burning to clear this waste, exacerbating local and regional haze.</p>
+            <div class="challenge-item">
+                <h4>2. The Open Burning Crisis</h4>
+                <img src="burning.jpg" alt="Open Burning Crisis" class="content-image">
+                <p>Millions of tonnes of old palm oil fronds are pruned annually. Farmers frequently resort to open burning to clear this waste, exacerbating local and regional haze.</p>
+            </div>
 
-            <p><strong>The Quality Gap:</strong> Standard engineered woods (plywood, MDF) are inherently hygroscopic. In Borneo's hyper-humid climate, this leads to irreversible thickness swelling and rapid delamination.</p>
+            <div class="challenge-item">
+                <h4>3. The Quality Gap</h4>
+                <img src="quality.jpg" alt="Material Quality Gap" class="content-image">
+                <p>Standard engineered woods (plywood, MDF) are inherently hygroscopic. In Borneo's hyper-humid climate, this leads to irreversible thickness swelling and rapid delamination.</p>
+            </div>
         </section>
 
         <section id="market">
@@ -380,10 +416,11 @@
         <section id="about">
             <h2>About The Inventor</h2>
             
+            <img src="inventor.jpg" alt="Mohamad Nurhaniesufian Bin Handri" class="inventor-image">
+            
             <p><strong>Mohamad Nurhaniesufian Bin Handri</strong><br>
             Founder & Lead Innovator<br>
-            Bachelor of International Marketing (Semester 5)<br>
-            Universiti Malaysia Sabah Kampus Anatarabangsa Labuan</p>
+            Bachelor of International Marketing (Semester 5), UMS</p>
 
             <p>Growing up in Lawas, Sarawak, I witnessed a persistent problem: mountains of oil palm fronds left to rot or burn after harvest. Refusing to wait for others to solve this economic and environmental leak, I took the initiative to turn the concept into reality.</p>
             
