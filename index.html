@@ -284,7 +284,7 @@
 
         .process-step img {
             width: 100%;
-            max-width: 150px;
+            max-width: 250px; /* Increased from 150px to make images much larger */
             height: auto;
             margin-bottom: 15px;
             border-radius: 4px;
@@ -369,7 +369,6 @@
             color: var(--dark-bg);
         }
 
-        /* Added the styling back for Faculty and Course */
         .team-member .role {
             font-size: 1rem;
             color: var(--primary-green);
@@ -717,7 +716,7 @@
                 
                 <div class="contact-form">
                     <h4 style="margin-bottom: 20px; font-size: 1.3rem;">Send us a Message</h4>
-                    <form action="#" method="POST">
+                    <form action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
                         <input type="text" name="name" placeholder="Your Full Name" required>
                         <input type="email" name="email" placeholder="Your Email Address" required>
                         <input type="text" name="subject" placeholder="Subject">
