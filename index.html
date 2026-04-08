@@ -34,7 +34,7 @@
         }
 
         /* Typography */
-        h1, h2, h3, h4 {
+        h1, h2, h3, h4, h5 {
             font-weight: 700;
             margin-bottom: 1rem;
             color: var(--dark-bg);
@@ -88,7 +88,7 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.3rem; 
             font-weight: bold;
             color: var(--white);
             text-decoration: none;
@@ -99,6 +99,11 @@
 
         .logo span {
             color: var(--primary-green);
+        }
+
+        .logo-icon {
+            height: 55px; 
+            width: auto;
         }
 
         nav ul {
@@ -148,7 +153,7 @@
             border-color: var(--primary-green);
         }
 
-        /* Feature Cards */
+        /* Cards for Lists */
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -162,52 +167,69 @@
             border-left: 4px solid var(--primary-green);
             border-radius: 4px;
         }
-
-        /* Diagram Integration within CSS */
-        /* Note: For full realism, the diagram itself should be an SVG or image, 
-           but I've used schematic representations and updated labels to fulfill the text instruction. */
         
-        .curing-block {
-            display: flex;
-            align-items: center;
+        .feature-card ul {
+            padding-left: 1.2rem;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        /* Manufacturing Process Grid */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            border: 2px dashed var(--border-color);
+            margin-top: 30px;
+        }
+
+        .process-step {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             padding: 20px;
-            border-radius: 8px;
-            margin-top: 1rem;
-        }
-
-        .material-input, .material-output {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 120px;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
         }
 
-        .material-icon {
-            font-size: 2rem;
-            margin-bottom: 5px;
+        .process-step:hover {
+            transform: translateY(-5px);
         }
 
-        .label-text {
-            font-size: 0.8rem;
+        .process-step img {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+
+        .process-step h5 {
+            font-size: 1.1rem;
+            color: var(--dark-bg);
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            font-size: 0.95rem;
             color: var(--text-muted);
+            margin-bottom: 0;
+            line-height: 1.4;
         }
 
-        .new-material-block {
-            border: 2px solid var(--primary-green);
-            background-color: rgba(46, 125, 50, 0.1);
-            color: var(--primary-green);
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 140px;
-            height: 100px;
-            text-align: center;
+        /* Image Styling */
+        .content-image {
+            width: 100%;
+            max-width: 700px;
+            height: auto;
             border-radius: 8px;
-            margin-top: 1rem;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .challenge-item {
+            margin-bottom: 40px;
         }
 
         /* Table Styling */
@@ -247,6 +269,23 @@
             margin-top: 40px;
         }
 
+        /* Inventor Section Flex Layout */
+        .inventor-flex {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .inventor-image {
+            flex-shrink: 0; 
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .nav-container {
@@ -273,6 +312,16 @@
             h2 {
                 font-size: 1.8rem;
             }
+
+            .inventor-flex {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .inventor-image {
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -280,15 +329,17 @@
 
     <header>
         <div class="nav-container">
-            <a href="#home" class="logo"><span>Eco</span>leaf</a>
+            <a href="#home" class="logo">
+                <img src="logo.png" alt="Eco-Leaf Logo" class="logo-icon">
+                <div class="brand-name"><span>Eco</span>-Leaf Palm Oil Board</div>
+            </a>
             <nav>
                 <ul>
-                    <li><a href="#home">Home</a></li>
                     <li><a href="#innovation">Innovation</a></li>
-                    <li><a href="#market">Market Analysis</a></li>
+                    <li><a href="#challenge">The Challenge</a></li>
+                    <li><a href="#market">Market</a></li>
                     <li><a href="#economics">Economics</a></li>
                     <li><a href="#roadmap">Roadmap</a></li>
-                    <li><a href="#partnerships">Partnerships</a></li>
                     <li><a href="#about">About</a></li>
                 </ul>
             </nav>
@@ -297,223 +348,221 @@
 
     <main>
         <section id="home">
-            <h2>5.0 The Vision</h2>
-            <h3>PCDS 2030 Alignment and Local Impact</h3>
-            <p>A strategic initiative to transform a massive environmental liability into a high-value, globally competitive asset, supporting Sarawak’s post-COVID Development Strategy (PCDS) 2030.</p>
+            <h2>The Vision</h2>
+            <h3>Transforming Agricultural Waste into Sarawak's Green Gold</h3>
+            <p>A Strategic Initiative to Transform Agricultural Biomass into High-Value Assets, Supporting Sarawak's PCDS 2030 Goals for a Green Economy.</p>
             
             <div class="feature-grid">
                 <div class="feature-card">
-                    <h4>2.1 Environmental Sustainability</h4>
+                    <h4 style="color: var(--dark-bg);">2.1 Environmental Sustainability</h4>
                     <ul>
-                        <li><strong>Biomass Valorization:</strong> Full value capture from a primary agricultural waste stream.</li>
-                        <li><strong>Decarbonization:</strong> Permanent carbon sequestration within durable construction materials.</li>
-                        <li><strong>Resource Efficiency:</strong> Implements a truly circular economy model within the plantation sector.</li>
+                        <li><strong>Biomass Valorization:</strong> Transitions away from the "linear" waste model, maximizing value from every hectare.</li>
+                        <li><strong>Decarbonization:</strong> Permanently sequesters carbon within construction materials, supporting net-zero ambitions.</li>
+                        <li><strong>Resource Management:</strong> Reduces reliance on timber extraction, preserving forests for carbon credits.</li>
                     </ul>
                 </div>
                 <div class="feature-card">
-                    <h4>2.2 Economic Prosperity</h4>
+                    <h4 style="color: var(--dark-bg);">2.2 Economic Prosperity</h4>
                     <ul>
-                        <li><strong>Raw Materials to IP:</strong> Transitioning from resource extraction to advanced material manufacturing.</li>
-                        <li><strong>Export Potential:</strong> Tapping into global markets demanding verified green solutions.</li>
-                        <li><strong>Downstream Catalysis:</strong> Empowering local furniture manufacturing with a green premium material.</li>
+                        <li><strong>Commodities to IP:</strong> Shifts economic value from raw materials to a protected asset (UI2025006487).</li>
+                        <li><strong>Import Substitution:</strong> Retains capital locally, replacing imported tiles and marine plywood.</li>
+                        <li><strong>Catalyzing Downstream:</strong> Empowers local furniture makers to export "Green Premium" products.</li>
                     </ul>
                 </div>
                 <div class="feature-card">
-                    <h4>2.3 Social Inclusivity</h4>
+                    <h4 style="color: var(--dark-bg);">2.3 Social Inclusivity</h4>
                     <ul>
-                        <li><strong>Public Health:</strong> Zero-VOC solution for a non-toxic living and working environment.</li>
-                        <li><strong>Rural Job Creation:</strong> Creating high-value jobs in collection, QC, and initial processing in rural areas.</li>
-                        <li><strong>Skill Development:</strong> Opportunities for local engineering and material science talent.</li>
+                        <li><strong>Public Health:</strong> Zero-VOC formulation provides safe, non-toxic living environments.</li>
+                        <li><strong>High-Value Job Creation:</strong> Creates roles for machine operators, QC, and R&D (TVET and university graduates).</li>
+                        <li><strong>Rural Empowerment:</strong> Generates a new revenue stream for smallholders in the collection ecosystem.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <section id="innovation">
-            <h2>The Innovation: From Fronds to Board</h2>
-            <h3>Bridging the Gap Between Agriculture and Construction</h3>
-            
-            <h4>The Technical Challenge</h4>
-            <p>Standard wood products rot and warp in hyper-humid tropical climates. Palm leaves are a massive waste stream but offer no inherent structural value due to their fiber length and high water content.</p>
+            <h2>The Innovation</h2>
+            <h3>4.2 Solving the Problems: The Eco-Leaf Advantage</h3>
+            <p>Eco-Leaf utilizes proprietary "High-Density Compression" to create a structural composite that fully valorizes the natural strength of the palm frond.</p>
 
-            <h4>The Ecoleaf Advantage</h4>
-            <ul>
-                <li><strong>Hydrophobic:</strong> A unique epoxy system encapsulates the fiber chips, rendering them inert to water. neglectable swelling and zero rotting, even in continuous wet environments.</li>
-                <li><strong>Zero-VOC:</strong> Achieves standard compliance for indoor use (e.g. Japanese F4-Star) as a naturally formaldehyde-free product.</li>
-                <li><strong>Circular Economics:</strong> Directly tackles open burning in estates by creating an immediate commercial value for waste.</li>
-            </ul>
-
-            <div class="table-container">
-                <h4>Schema and Material Flow (Pilot Process)</h4>
-                <div style="display: flex; align-items: flex-start; gap: 20px;">
-                    <div style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 140px;">
-                        <span class="material-icon">🌴</span> <span style="border-radius: 50%; width: 20px; height: 20px; background-color: white; border: 1px solid black; color: black; display: flex; align-items: center; justify-content: center; font-weight: bold; margin: 5px 0;">1</span>
-                        <div style="color: blue; text-decoration: underline;">NIPA PALM FRONDS</div>
-                        <p class="label-text">SOURCED NIPA PALM FRONDS</p>
-                    </div>
-                    
-                    <div style="font-size: 2rem;">&rarr;</div>
-                    
-                    <div class="curing-block">
-                        <div style="font-size: 1.5rem;">Curing Block</div>
-                        <div style="display: flex; flex-direction: column; align-items: center;">
-                            <span style="border-radius: 50%; width: 20px; height: 20px; background-color: white; border: 1px solid black; color: black; display: flex; align-items: center; justify-content: center; font-weight: bold; margin: 5px 0;">4</span>
-                            <div style="color: blue; text-decoration: underline;">Controlled 24hr curing for final board strength</div>
-                        </div>
-                    </div>
-                    
-                    <div style="font-size: 2rem;">&rarr;</div>
-                    
-                    <div class="new-material-block">
-                        <div>FINISHED ECO-LEAF BOARD</div>
-                    </div>
-                    
-                    <div style="font-size: 2rem;">&rarr;</div>
-                    
-                    <div class="material-output">
-                        <div class="new-material-block" style="border-style: none; background-color: #dfe6e9; color: black;">FINISHED BOARD</div>
-                    </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Water Resistance (Hydrophobic)</h4>
+                    <p>While wood fibers are hygroscopic, Eco-Leaf's epoxy encapsulation creates a hydrophobic barrier. It demonstrates negligible thickness swelling in 24-hour immersion tests compared to standard plywood.</p>
                 </div>
+                <div class="feature-card">
+                    <h4>Sustainability (The Carbon Lock)</h4>
+                    <p>Actively converts an environmental hazard into a carbon sink. By creating a commercial value for waste, it incentivizes plantations to stop open burning, mitigating the haze crisis.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Public Health (Zero-Toxicity)</h4>
+                    <p>Cures into a chemically stable, inert polymer network. It emits zero formaldehyde, future-proofing the product against strict global emission regulations (e.g., Japanese F4-Star).</p>
+                </div>
+            </div>
+
+            <br>
+            <h4>The Manufacturing Process</h4>
+            
+            <div class="process-grid">
+                <div class="process-step">
+                    <img src="step1.jpg" alt="Preparation Phase">
+                    <h5>1. PREPARATION</h5>
+                    <p>Shredding leaves (e.g. Oil Palm Leaves) to create uniform fiber size.</p>
+                </div>
+                <div class="process-step">
+                    <img src="step2.jpg" alt="Mixing Phase">
+                    <h5>2. MIXING</h5>
+                    <p>Blending fiber with epoxy resin & hardener for uniform coating.</p>
+                </div>
+                <div class="process-step">
+                    <img src="step3.jpg" alt="Compression Phase">
+                    <h5>3. COMPRESSION</h5>
+                    <p>Hot Pressing in custom mold to densify the material (optimized >60% fiber ratio).</p>
+                </div>
+                <div class="process-step">
+                    <img src="step4.jpg" alt="Curing Phase">
+                    <h5>4. CURING</h5>
+                    <p>24 Hour Controlled Curing for final structural strength.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="challenge">
+            <h2>The Malaysia Challenge</h2>
+            <h3>Solving the RM 800 Million Disconnect</h3>
+            
+            <div class="challenge-item">
+                <h4>1. The Economic Disconnect</h4>
+                <img src="goku.png" alt="The Economic Disconnect" class="content-image">
+                <p>While Crude Palm Oil contributed RM 801 million to state coffers in 2025, Timber Products contributed only RM 21 million. We export finite resources and import finished goods. Eco-Leaf bridges this gap.</p>
+            </div>
+
+            <div class="challenge-item">
+                <h4>2. The Open Burning Crisis</h4>
+                <img src="lizard.jpg" alt="Open Burning Crisis" class="content-image">
+                <p>Millions of tonnes of old palm oil fronds are pruned annually. Farmers frequently resort to open burning to clear this waste, exacerbating local and regional haze.</p>
+            </div>
+
+            <div class="challenge-item">
+                <h4>3. The Quality Gap</h4>
+                <img src="tom.jpeg" alt="Material Quality Gap" class="content-image">
+                <p>Standard engineered woods (plywood, MDF) are inherently hygroscopic. In Borneo's hyper-humid climate, this leads to irreversible thickness swelling and rapid delamination.</p>
             </div>
         </section>
 
         <section id="market">
             <h2>6.0 Market Analysis & Opportunity</h2>
-            <h3>The Global Demand for Verified Green Solutions</h3>
-            <p>The global construction material market is undergoing a seismic shift towards decarbonization and toxicity-free materials. Eco-Leaf is uniquely positioned to bridge the gap.</p>
+            <h3>Bridging the Gap Between Wood and Tiles</h3>
 
             <div class="feature-grid">
                 <div class="feature-card">
                     <h4>Market Driver 1: Tropical Failure</h4>
-                    <p>Current construction materials fail rapidly in hyper-humid environments. Continuous warping, rotting, and replacement create a demand for Lifetime Waterproof Warranties for cabinetry and structural panels.</p>
+                    <p>Driven by the catastrophic failure rate of standard wood panels in humid environments. Eco-Leaf offers a waterproof alternative allowing for "Lifetime Waterproof Warranties" on cabinetry.</p>
                 </div>
                 <div class="feature-card">
                     <h4>Market Driver 2: Healthy Homes</h4>
-                    <p>Formaldehyde emissions are a primary target for indoor air quality regulations. Tighter limits (e.g. EU Regulation 2023/1464) and increasing consumer awareness create a natural market premium for Zero-VOC compliance.</p>
+                    <p>Tightening global formaldehyde limits (EU Regulation 2023/1464) create a barrier for plywood but a "green lane" for Eco-Leaf's inherent Zero-VOC compliance.</p>
                 </div>
             </div>
 
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h4>Market Sizing (TAM/SAM/SOM)</h4>
-                    <ul>
-                        <li><strong>TAM:</strong> The Asia-Pacific specialized and waterproofing material market.</li>
-                        <li><strong>SAM:</strong> The premium specified "Green" and "Luxury" wet-area surfacing for cabinets and counters.</li>
-                        <li><strong>SOM:</strong> Securing "Beta Partner" contracts with leading Sarawakian furniture manufacturers.</li>
-                    </ul>
-                </div>
-            </div>
+            <br>
+            <h4>Market Sizing Strategy (TAM / SAM / SOM)</h4>
+            <ul>
+                <li><strong>TAM:</strong> The USD 14.45 billion Asia-Pacific waterproofing and specialized construction panel market.</li>
+                <li><strong>SAM:</strong> Premium cabinetry and wet-area surfacing in Malaysia and Singapore (targeting the 15% specified as "Green" or "Luxury").</li>
+                <li><strong>SOM:</strong> Securing "Beta Partner" contracts with top-tier Sarawakian furniture manufacturers for their 2026 export lines.</li>
+            </ul>
         </section>
 
         <section id="economics">
-            <h2>7.1 Key Cost Drivers & Assumption</h2>
-            <h3>The Economics of Commercial Success</h3>
+            <h2>Economics & Future Value</h2>
             
-            <p>Our economic model is built on low raw material cost and high manufacturing value-add. As a byproduct of a primary industry, Nipa Palm fronds have a stable, near-zero supply cost and are entirely insulated from timber price volatility.</p>
+            <h3>7.1 Key Cost Drivers & Assumptions</h3>
+            <ul>
+                <li><strong>Raw Material (Fronds):</strong> Near-Zero Cost. As an agricultural waste residue, the primary cost is logistics, providing a massive buffer against fluctuating timber prices.</li>
+                <li><strong>Binder (Epoxy System):</strong> The primary cost driver. Modeled conservatively on industrial bulk purchasing at a 2:1 fiber-rich compression ratio to optimize efficiency.</li>
+                <li><strong>Processing:</strong> Estimated energy costs for industrial shredding, drying, and hydraulic pressing.</li>
+            </ul>
 
-            <p>Processing costs are concentrated on shredding, drying, and hydraulic pressing, all highly optimized in the pilot phase. This leads to a production cost structure that significantly undercuts expensive imported alternatives.</p>
-
+            <h4>Comparative Material Cost Analysis</h4>
             <div class="table-container">
-                <h4>Comparative Material Cost Analysis (Revised)</h4>
-                <table border="1">
+                <table>
                     <tr>
                         <th>Material Type</th>
                         <th>Est. Material Cost (Per ft²)</th>
                         <th>Performance Profile</th>
                     </tr>
                     <tr>
-                        <td>Marine Plywood (Low Quality)</td>
-                        <td>RM 5.50 - RM 6.50</td>
-                        <td>Inconsistent core, variable water resistance</td>
-                    </tr>
-                    <tr>
-                        <td>Porcelain Tiles / Ceramic Counters</td>
-                        <td>RM 10.00 - RM 15.00+</td>
-                        <td>Waterproof, Heavy, brittle, difficult to fabricate</td>
+                        <td>Standard MR Plywood</td>
+                        <td>RM 3.00 - RM 3.50</td>
+                        <td>Low Moisture Resistance, High VOC</td>
                     </tr>
                     <tr style="background-color: rgba(46, 125, 50, 0.1);">
                         <td><strong>Eco-Leaf Bio-Composite</strong></td>
                         <td><strong>RM 4.20 - RM 5.60</strong></td>
-                        <td><strong>Zero Rot, negligible swelling, highly hydrophobic</strong></td>
+                        <td><strong>Fully Waterproof, Zero-VOC</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Marine Plywood</td>
+                        <td>RM 5.50 - RM 8.00</td>
+                        <td>Water Resistant, Variable VOC</td>
+                    </tr>
+                    <tr>
+                        <td>Porcelain/Ceramic Tiles</td>
+                        <td>RM 10.00 - RM 15.00+</td>
+                        <td>Waterproof, Heavy, Brittle</td>
                     </tr>
                 </table>
             </div>
+
+            <br>
+            <h3>8.3 Future Value & Exit Strategy</h3>
+            <p>While standard manufacturing companies are typically valued at 5x-7x their earnings, "Green Tech" and "Circular Economy" companies command a significant ESG Valuation Premium, often trading at <strong>12x-15x multiples</strong>.</p>
+            <p><strong>The Asset:</strong> By Year 5, Eco-Leaf will not just be selling wood; it will be selling a certified, zero-carbon solution.</p>
+            <p><strong>The Exit Strategy:</strong> This positions the company as a prime acquisition target for major Global Timber Conglomerates or International Chemical Companies seeking to "green" their portfolios.</p>
         </section>
 
         <section id="roadmap">
-            <h2>8.2 The Roadmap: Global Positioning</h2>
-            <h3>De-Risking Innovation, Transitioning from Student to Founder</h3>
-
-            <h4>Phase 1: Validation and IP (Months 1-6)</h4>
-            <ul>
-                <li>Securing initial pilot funding and executing substantive examination request with MyIPO.</li>
-                <li>Conducting standardized FRIM and SIRIM product testing for certified data.</li>
-            </ul>
-
-            <h4>Phase 2: Market Seeding (Months 7-12)</h4>
-            <ul>
-                <li>Commencing production and supplying free "Beta Partner" test panels to leading local furniture makers.</li>
-                <li>Participating in major domestic green and industrial expositions.</li>
-            </ul>
-
-            <h4>Phase 3: Scaling and Export (Year 2+)</h4>
-            <ul>
-                <li>Securing Series A Investment for a dedicated factory.</li>
-                <li>Commencing exports to Japanese, Australian, and Korean markets with established certifications.</li>
-            </ul>
-        </section>
-
-        <section id="partnerships">
-            <h2>Partnerships and Recognition</h2>
-            <h3>Building a Strong, Multi-Disciplinary Ecosystem</h3>
-
+            <h2>Project Roadmap & Strategy</h2>
+            
             <div class="feature-grid">
                 <div class="feature-card">
-                    <h4>7.0 Key Milestones</h4>
-                    <ul>
-                        <li><strong>UI2025006487:</strong> Priority patent filing for High-Density Nipa Palm composite board, securing global IP path.</li>
-                        <li><strong>Lab Validation:</strong> Successful fabrication of zero-VOC, hydrophobic prototypes in multiple thicknesses.</li>
-                        <li><strong>Strategic NREB Engagement:</strong> Initial consultation with NREB regarding sustainable waste utilization protocols.</li>
-                    </ul>
+                    <h4>Phase 1: Validation</h4>
+                    <p><strong>Months 1-6:</strong> Secure Seed Funding, file Substantive Examination Request with MyIPO, and submit standardized samples to SIRIM / FRIM for official testing.</p>
                 </div>
-            </div>
-
-            <div class="table-container">
-                <h4>Strategic Partners</h4>
-                <table border="1">
-                    <tr>
-                        <th>Partner</th>
-                        <th>Role</th>
-                        <th>Value Added</th>
-                    </tr>
-                    <tr>
-                        <td>SALCRA / State Plantations</td>
-                        <td>Material Offtake Agreements</td>
-                        <td>Guaranteed and sustainable frond supply.</td>
-                    </tr>
-                    <tr style="background-color: rgba(46, 125, 50, 0.1);">
-                        <td>SIRIM / FRIM</td>
-                        <td>Testing and Certification</td>
-                        <td>Verified data and standards compliance.</td>
-                    </tr>
-                    <tr>
-                        <td>Local STIDC Partners</td>
-                        <td>Export Seeding</td>
-                        <td>Market intelligence and distribution channels.</td>
-                    </tr>
-                </table>
+                <div class="feature-card">
+                    <h4>Phase 2: Market Seeding</h4>
+                    <p><strong>Months 7-12:</strong> Supply pilot batches to 3 Sarawakian furniture manufacturers and secure commercial Letters of Intent (LOI).</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Phase 3: Commercial Scaling</h4>
+                    <p><strong>Year 2 Onwards:</strong> Secure Series A Investment for a dedicated factory facility and commence high-value exports to Korea and Japan.</p>
+                </div>
             </div>
         </section>
 
         <section id="about">
-            <h2>About the Inventor</h2>
-            <h3>From Idea to Industry Playmaker</h3>
-            <p><strong>Mohamad Nurhaniesufian Bin Handri</strong> is a semester 5 International Marketing student at UMS Antarabangsa Labuan. Witnessing the massive, persistent issue of waste burning in plantations, he took the initiative to turn an ecological issue into an economic opportunity. By independently self-funding R&D, navigating patent law, and fabricating initial hydrophobic prototypes, he is now ready to transition from student innovator to founder, de-risking this critical green technology for Sarawak.</p>
+            <h2>About The Inventor</h2>
+            
+            <div class="inventor-flex">
+                <img src="inventor.png" alt="Portrait of Mohamad Nurhaniesufian Bin Handri" class="inventor-image">
+                
+                <div class="inventor-text">
+                    <p><strong>Mohamad Nurhaniesufian Bin Handri</strong><br>
+                    Founder & Lead Innovator<br>
+                    Bachelor of International Marketing with Honors Student<br>
+                    Universiti Malaysia Sabah Antarabangsa Labuan</p>
+
+                    <p>Growing up in Lawas, Sarawak, I witnessed a persistent problem: mountains of oil palm fronds left to rot or burn after harvest. Refusing to wait for others to solve this economic and environmental leak, I took the initiative to turn the concept into reality.</p>
+                    
+                    <p>Operating independently, I self-funded the initial R&D, successfully fabricated high-density prototypes, and navigated the legal landscape to file the IP (UI2025006487). I am now ready to transition from a student innovator to the founder of Sarawak's next primary green industry.</p>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Eco-Leaf Palm Oil Board Pilot Project. All Rights Reserved.</p>
+        <p>&copy; 2026 Eco-Leaf Palm Oil Board. All Rights Reserved.</p>
     </footer>
 
 </body>
