@@ -186,7 +186,7 @@
 
         .hero-buttons {
             display: flex;
-            justify-content: center; /* Centers the button */
+            justify-content: center; 
         }
 
         /* Feature Cards */
@@ -349,6 +349,9 @@
             padding: 20px;
             border-radius: 8px;
             border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .team-member img {
@@ -362,14 +365,31 @@
 
         .team-member h4 {
             font-size: 1.1rem;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            color: var(--dark-bg);
         }
 
-        .team-member p {
-            font-size: 0.9rem;
+        /* Added the styling back for Faculty and Course */
+        .team-member .role {
+            font-size: 1rem;
             color: var(--primary-green);
             font-weight: bold;
             margin-bottom: 0;
+        }
+
+        .team-member .faculty {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .team-member .course {
+            font-size: 0.95rem;
+            color: var(--primary-green);
+            font-weight: bold;
+            margin-bottom: 0;
+            line-height: 1.3;
         }
 
         /* Contact Form */
@@ -654,31 +674,31 @@
                 <div class="team-member">
                     <img src="Dr.jpeg" alt="Team Member 1">
                     <h4>Dr Nur Thara Atikah Zainal</h4>
-                    <p>Supervisor</p>
+                    <p class="role">Supervisor</p>
                 </div>
                 <div class="team-member">
                     <img src="maslina.jpeg" alt="Team Member 2">
                     <h4>Maslina Binti Mahathir</h4>
-                    <p>Faculty of Social Sciences and Humanities</p>
-                    <p>Anthropology and Sociology</p>
+                    <p class="faculty">Faculty of Social Sciences and Humanities</p>
+                    <p class="course">Anthropology and Sociology</p>
                 </div>
                 <div class="team-member">
                     <img src="nisa.jpeg" alt="Team Member 3">
                     <h4>Nur Hanisah Binti Sahiri</h4>
-                    <p>Faculty of Social Sciences and Humanities</p>
-                    <p>Anthropology and Sociology</p>
+                    <p class="faculty">Faculty of Social Sciences and Humanities</p>
+                    <p class="course">Anthropology and Sociology</p>
                 </div>
                 <div class="team-member">
                     <img src="rowan.jpeg" alt="Team Member 4">
                     <h4>Rowan Bin Rahman</h4>
-                    <p>Faculty of Business, Economics and Accountancy</p>
-                    <p>International Business</p>
+                    <p class="faculty">Faculty of Business, Economics and Accountancy</p>
+                    <p class="course">International Business</p>
                 </div>
                 <div class="team-member">
                     <img src="lizard.jpg" alt="Team Member 5">
                     <h4>Danial Ariffin</h4>
-                    <p>Faculty of Computer and Infomatics</p>
-                    <p>Business Computing</p>
+                    <p class="faculty">Faculty of Computer and Infomatics</p>
+                    <p class="course">Business Computing</p>
                 </div>
             </div>
         </section>
