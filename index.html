@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco-Leaf Palm Oil Board Pilot Project</title>
+    <title>Eco-Leaf Palm Oil Board</title>
     <style>
         /* CSS Reset & Base Styles */
         :root {
@@ -65,6 +65,39 @@
 
         li {
             margin-bottom: 0.5rem;
+        }
+
+        /* Buttons (Added for Hero Section) */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-green);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            margin-right: 10px;
+            transition: background-color 0.3s, border 0.3s, color 0.3s;
+            border: 2px solid var(--primary-green);
+        }
+
+        .btn:hover {
+            background-color: #1b5e20;
+            border-color: #1b5e20;
+            color: var(--white);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--dark-bg);
         }
 
         /* Navigation */
@@ -140,23 +173,39 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        /* Hero Section Styling */
+        /* Hero Section Styling (Updated) */
         #home {
             background: linear-gradient(rgba(26, 30, 33, 0.8), rgba(26, 30, 33, 0.9)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=2000') center/cover;
             color: var(--white);
             text-align: center;
-            padding: 80px 20px;
+            padding: 100px 20px;
         }
 
-        #home h2, #home h3, #home h4 {
+        #home h2 {
             color: var(--white);
-            border-color: var(--primary-green);
+            border: none;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
         }
 
-        /* Cards for Lists */
+        #home p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            color: #dfe6e9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Feature Cards */
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
@@ -167,14 +216,62 @@
             border-left: 4px solid var(--primary-green);
             border-radius: 4px;
         }
-        
-        .feature-card ul {
-            padding-left: 1.2rem;
-            font-size: 0.95rem;
-            color: var(--text-main);
+
+        .feature-card h4 {
+            color: var(--dark-bg);
+            margin-bottom: 10px;
         }
 
-        /* Manufacturing Process Grid */
+        /* Showcase Grid */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .showcase-item {
+            text-align: center;
+            background: var(--light-bg);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .showcase-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Impact Section Stats */
+        .impact-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: center;
+            margin-top: 30px;
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .stat-box {
+            padding: 15px;
+            min-width: 200px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            color: var(--primary-green);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        /* Process Grid */
         .process-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -189,11 +286,6 @@
             padding: 20px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .process-step:hover {
-            transform: translateY(-5px);
         }
 
         .process-step img {
@@ -202,34 +294,6 @@
             height: auto;
             margin-bottom: 15px;
             border-radius: 4px;
-        }
-
-        .process-step h5 {
-            font-size: 1.1rem;
-            color: var(--dark-bg);
-            margin-bottom: 10px;
-        }
-
-        .process-step p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 0;
-            line-height: 1.4;
-        }
-
-        /* Image Styling */
-        .content-image {
-            width: 100%;
-            max-width: 700px;
-            height: auto;
-            border-radius: 8px;
-            margin: 15px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: block;
-        }
-
-        .challenge-item {
-            margin-bottom: 40px;
         }
 
         /* Table Styling */
@@ -260,15 +324,6 @@
             background-color: var(--light-bg);
         }
 
-        /* Footer */
-        footer {
-            background-color: var(--dark-bg);
-            color: var(--white);
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-
         /* Inventor Section Flex Layout */
         .inventor-flex {
             display: flex;
@@ -284,6 +339,15 @@
             border-radius: 50%;
             object-fit: cover;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
         }
 
         /* Mobile Responsiveness */
@@ -309,8 +373,8 @@
                 padding: 25px 15px;
             }
 
-            h2 {
-                font-size: 1.8rem;
+            #home h2 {
+                font-size: 2rem;
             }
 
             .inventor-flex {
@@ -335,12 +399,12 @@
             </a>
             <nav>
                 <ul>
+                    <li><a href="#why-choose-us">Why Us</a></li>
+                    <li><a href="#showcase">Products</a></li>
+                    <li><a href="#impact">Impact</a></li>
                     <li><a href="#innovation">Innovation</a></li>
-                    <li><a href="#challenge">The Challenge</a></li>
-                    <li><a href="#market">Market</a></li>
-                    <li><a href="#economics">Economics</a></li>
-                    <li><a href="#roadmap">Roadmap</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#market">Economics</a></li>
+                    <li><a href="#about">About Us</a></li>
                 </ul>
             </nav>
         </div>
@@ -348,34 +412,74 @@
 
     <main>
         <section id="home">
-            <h2>The Vision</h2>
-            <h3>Transforming Agricultural Waste into Malaysia's Green Gold</h3>
-            <p>A Strategic Initiative to Transform Agricultural Biomass into High-Value Assets, Supporting Sarawak's PCDS 2030 Goals for a Green Economy.</p>
-            
+            <h2>Eco Leaf Board: Sustainable Panels from Agricultural Waste</h2>
+            <p>Strong, eco-friendly, and cost-effective materials designed to replace traditional wood and plastic boards.</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn">Contact Us</a>
+                <a href="#contact" class="btn btn-outline">Get a Sample</a>
+            </div>
+        </section>
+
+        <section id="why-choose-us">
+            <h2>Why Choose Us</h2>
+            <h3>The Smart Alternative to Traditional Materials</h3>
             <div class="feature-grid">
                 <div class="feature-card">
-                    <h4 style="color: var(--dark-bg);">Environmental Sustainability</h4>
-                    <ul>
-                        <li><strong>Biomass Valorization:</strong> Transitions away from the "linear" waste model, maximizing value from every hectare.</li>
-                        <li><strong>Decarbonization:</strong> Permanently sequesters carbon within construction materials, supporting net-zero ambitions.</li>
-                        <li><strong>Resource Management:</strong> Reduces reliance on timber extraction, preserving forests for carbon credits.</li>
-                    </ul>
+                    <h4>Eco-Friendly</h4>
+                    <p>Directly reduces agricultural pollution by transforming discarded palm fronds into high-value building materials.</p>
                 </div>
                 <div class="feature-card">
-                    <h4 style="color: var(--dark-bg);">Economic Prosperity</h4>
-                    <ul>
-                        <li><strong>Commodities to IP:</strong> Shifts economic value from raw materials to a protected asset (UI2025006487).</li>
-                        <li><strong>Import Substitution:</strong> Retains capital locally, replacing imported tiles and marine plywood.</li>
-                        <li><strong>Catalyzing Downstream:</strong> Empowers local furniture makers to export "Green Premium" products.</li>
-                    </ul>
+                    <h4>Durable</h4>
+                    <p>A strong, waterproof material that resists rot, swelling, and delamination even in hyper-humid environments.</p>
                 </div>
                 <div class="feature-card">
-                    <h4 style="color: var(--dark-bg);">Social Inclusivity</h4>
-                    <ul>
-                        <li><strong>Public Health:</strong> Zero-VOC formulation provides safe, non-toxic living environments.</li>
-                        <li><strong>High-Value Job Creation:</strong> Creates roles for machine operators, QC, and R&D (TVET and university graduates).</li>
-                        <li><strong>Rural Empowerment:</strong> Generates a new revenue stream for smallholders in the collection ecosystem.</li>
-                    </ul>
+                    <h4>Cost-Effective</h4>
+                    <p>An affordable manufacturing process that leverages near-zero cost raw materials to undercut expensive alternatives.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Sustainable</h4>
+                    <p>Actively supports the circular economy and permanently sequesters carbon within long-lasting structures.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="showcase">
+            <h2>Product Showcase</h2>
+            <h3>Versatile Applications for a Greener Future</h3>
+            <div class="showcase-grid">
+                <div class="showcase-item">
+                    <img src="furniture.jpg" alt="Eco-Leaf Furniture Mockup" onerror="this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=500'">
+                    <h4>Furniture & Cabinetry</h4>
+                    <p>Perfect for waterproof kitchen counters and bathroom vanities.</p>
+                </div>
+                <div class="showcase-item">
+                    <img src="construction.jpg" alt="Eco-Leaf Construction Mockup" onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=500'">
+                    <h4>Construction Panels</h4>
+                    <p>Durable, zero-VOC wall surfacing and structural paneling.</p>
+                </div>
+                <div class="showcase-item">
+                    <img src="packaging.jpg" alt="Eco-Leaf Packaging Mockup" onerror="this.src='https://images.unsplash.com/photo-1605600659873-d808a1d14b50?auto=format&fit=crop&q=80&w=500'">
+                    <h4>Sustainable Packaging</h4>
+                    <p>Heavy-duty, eco-friendly industrial crates and packaging solutions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="impact">
+            <h2>Our Impact</h2>
+            <h3>Driving Environmental and Social Change</h3>
+            <div class="impact-stats">
+                <div class="stat-box">
+                    <div class="stat-number">100%</div>
+                    <p>Agricultural Waste Reused</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">Zero</div>
+                    <p>Formaldehyde Emissions</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">New</div>
+                    <p>Local Jobs Created</p>
                 </div>
             </div>
         </section>
@@ -385,24 +489,8 @@
             <h3>Solving the Problems: The Eco-Leaf Advantage</h3>
             <p>Eco-Leaf utilizes proprietary "High-Density Compression" to create a structural composite that fully valorizes the natural strength of the palm frond.</p>
 
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h4>Water Resistance (Hydrophobic)</h4>
-                    <p>While wood fibers are hygroscopic, Eco-Leaf's epoxy encapsulation creates a hydrophobic barrier. It demonstrates negligible thickness swelling in 24-hour immersion tests compared to standard plywood.</p>
-                </div>
-                <div class="feature-card">
-                    <h4>Sustainability (The Carbon Lock)</h4>
-                    <p>Actively converts an environmental hazard into a carbon sink. By creating a commercial value for waste, it incentivizes plantations to stop open burning, mitigating the haze crisis.</p>
-                </div>
-                <div class="feature-card">
-                    <h4>Public Health (Zero-Toxicity)</h4>
-                    <p>Cures into a chemically stable, inert polymer network. It emits zero formaldehyde, future-proofing the product against strict global emission regulations (e.g., Japanese F4-Star).</p>
-                </div>
-            </div>
-
             <br>
             <h4>The Manufacturing Process</h4>
-            
             <div class="process-grid">
                 <div class="process-step">
                     <img src="tom.jpeg" alt="Preparation Phase">
@@ -428,33 +516,9 @@
         </section>
 
         <section id="market">
-            <h2>Market Analysis & Opportunity</h2>
-            <h3>Bridging the Gap Between Wood and Tiles</h3>
-
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h4>Market Driver 1: Tropical Failure</h4>
-                    <p>Driven by the catastrophic failure rate of standard wood panels in humid environments. Eco-Leaf offers a waterproof alternative allowing for "Lifetime Waterproof Warranties" on cabinetry.</p>
-                </div>
-                <div class="feature-card">
-                    <h4>Market Driver 2: Healthy Homes</h4>
-                    <p>Tightening global formaldehyde limits (EU Regulation 2023/1464) create a barrier for plywood but a "green lane" for Eco-Leaf's inherent Zero-VOC compliance.</p>
-                </div>
-            </div>
-
-            <br>
-            <h4>Market Sizing Strategy (TAM / SAM / SOM)</h4>
-            <ul>
-                <li><strong>TAM:</strong> The USD 14.45 billion Asia-Pacific waterproofing and specialized construction panel market.</li>
-                <li><strong>SAM:</strong> Premium cabinetry and wet-area surfacing in Malaysia and Singapore (targeting the 15% specified as "Green" or "Luxury").</li>
-                <li><strong>SOM:</strong> Securing "Beta Partner" contracts with top-tier Sarawakian furniture manufacturers for their 2026 export lines.</li>
-            </ul>
-        </section>
-
-        <section id="economics">
             <h2>Economics & Future Value</h2>
+            <h3>Bridging the Gap Between Wood and Tiles</h3>
             
-            <h3>Key Cost Drivers & Assumptions</h3>
             <ul>
                 <li><strong>Raw Material (Fronds):</strong> Near-Zero Cost. As an agricultural waste residue, the primary cost is logistics, providing a massive buffer against fluctuating timber prices.</li>
                 <li><strong>Binder (Epoxy System):</strong> The primary cost driver. Modeled conservatively on industrial bulk purchasing at a 2:1 fiber-rich compression ratio to optimize efficiency.</li>
@@ -491,40 +555,18 @@
                     </tr>
                 </table>
             </div>
-
-            <br>
-            <h3>Future Value & Exit Strategy</h3>
-            <p>While standard manufacturing companies are typically valued at 5x-7x their earnings, "Green Tech" and "Circular Economy" companies command a significant ESG Valuation Premium, often trading at <strong>12x-15x multiples</strong>.</p>
-            <p><strong>The Asset:</strong> By Year 5, Eco-Leaf will not just be selling wood; it will be selling a certified, zero-carbon solution.</p>
-            <p><strong>The Exit Strategy:</strong> This positions the company as a prime acquisition target for major Global Timber Conglomerates or International Chemical Companies seeking to "green" their portfolios.</p>
-        </section>
-
-        <section id="roadmap">
-            <h2>Project Roadmap & Strategy</h2>
-            
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h4>Phase 1: Validation</h4>
-                    <p><strong>Months 1-6:</strong> Secure Seed Funding, file Substantive Examination Request with MyIPO, and submit standardized samples to SIRIM / FRIM for official testing.</p>
-                </div>
-                <div class="feature-card">
-                    <h4>Phase 2: Market Seeding</h4>
-                    <p><strong>Months 7-12:</strong> Supply pilot batches to 3 Sarawakian furniture manufacturers and secure commercial Letters of Intent (LOI).</p>
-                </div>
-                <div class="feature-card">
-                    <h4>Phase 3: Commercial Scaling</h4>
-                    <p><strong>Year 2 Onwards:</strong> Secure Series A Investment for a dedicated factory facility and commence high-value exports to Korea and Japan.</p>
-                </div>
-            </div>
         </section>
 
         <section id="about">
-            <h2>About The Inventor</h2>
+            <h2>About Us</h2>
+            <h3>Student-Led Innovation for Sustainability</h3>
             
             <div class="inventor-flex">
                 <img src="inventor.png" alt="Portrait of Mohamad Nurhaniesufian Bin Handri" class="inventor-image">
                 
                 <div class="inventor-text">
+                    <p>We are driven by a passion for sustainability and a mission to solve real-world environmental problems through modern material innovation.</p>
+                    
                     <p><strong>Mohamad Nurhaniesufian Bin Handri</strong><br>
                     Founder & Lead Innovator<br>
                     Bachelor of International Marketing with Honors Student<br>
@@ -532,7 +574,7 @@
 
                     <p>Growing up in Lawas, Sarawak, I witnessed a persistent problem: mountains of oil palm fronds left to rot or burn after harvest. Refusing to wait for others to solve this economic and environmental leak, I took the initiative to turn the concept into reality.</p>
                     
-                    <p>Operating independently, I self-funded the initial R&D, successfully fabricated high-density prototypes, and navigated the legal landscape to file the IP (UI2025006487). I am now ready to transition from a student innovator to the founder of Sarawak's next primary green industry.</p>
+                    <p>Operating independently, I self-funded the initial R&D, successfully fabricated high-density prototypes, and navigated the legal landscape to file the IP (UI2025006487). We are now ready to transition from a student project into a professional startup driving Sarawak's next primary green industry.</p>
                 </div>
             </div>
         </section>
